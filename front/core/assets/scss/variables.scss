@@ -1,0 +1,54 @@
+/*TODO: Delete this varibales
+ *		after changing for the new variables
+ *		in other SCSS filrs
+ */
+
+/* Colors */
+$deep-green: #729246;
+$cream: #fcffc0;
+$sweet-cream: rgba(252, 255, 192, 0.5);
+$green: #acda4d;
+$light-green: rgba(172, 218, 77, 0.5);
+$brown: #8c6d00;
+$bg-white: #ffffff;
+$bg-black: #000000;
+$light-grey: #c0c0c0;
+$lighter-grey: #f9f9f9;
+$grey: #7a7a7a;
+$deep-grey: #444444;
+$input-grey: #b2b2b3;
+
+$warn-yellow: #ffff33;
+$err-red: #cb5234;
+/*********************/
+
+/* Fonts */
+$icon-font-family: "olive";
+$main-font-family: 'Open Sans', sans-serif;
+
+$font-size-sm:         12px;
+$font-size-md:         14px;
+$font-size-lg:         18px;
+$font-size-xl:         22px;
+
+$font-sm-regular: $font-size-sm $main-font-family;
+$font-md-regular: $font-size-md $main-font-family;
+$font-lg-regular: $font-size-lg $main-font-family;
+$font-xl-regular: $font-size-xl $main-font-family;
+
+$font-sm-bold: bold $font-size-sm $main-font-family;
+$font-md-bold: bold $font-size-md $main-font-family;
+$font-lg-bold: bold $font-size-lg $main-font-family;
+$font-xl-bold: bold $font-size-xl $main-font-family;
+
+/*********/
+
+/* Spaces */
+$xs-space: 3px;
+$sm-space: 6px;
+$md-space: 12px;
+$lg-space: 18px;
+$xl-space: 30px;
+/**********/
+
+$scrollbar-width: 12px;

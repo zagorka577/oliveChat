@@ -1,0 +1,74 @@
+<header class="fixed">
+    <div class="center-block">
+      <h1>Edit your profile</h1>
+      <a class="oi oli-cancel" ui-sref="mainView"></a>
+    </div>
+</header>
+<form name="editProfile">
+    <div class="container">
+        <div class="container-column col-xl-4 col-lg-4 col-md-5 col-sm-6">
+            <div class="holder-short">
+              <label for="first">First name</label>
+              <input 
+                type="text" 
+                class="input" 
+                id="first"
+                ng-model="$ctrl.userData.meta.firstName" 
+                placeholder="First Name">
+            </div>
+
+            <div class="holder-short">
+              <label for="last">Last name</label>
+              <input 
+                type="text" 
+                class="input" 
+                id="last"
+                ng-model="$ctrl.userData.meta.lastName" 
+                placeholder="Last Name">
+            </div>
+
+            <div class="holder-short">
+              <label for="what">Role</label>
+              <input 
+                type="text" 
+                class="input" 
+                id="what"
+                ng-model="$ctrl.userData.meta.role" 
+                placeholder="What I do">
+              <p>Let people know what you do at this chat</p>
+            </div>
+
+            <div class="holder-short">
+              <label for="phone">Phone number</label>
+              <input 
+                type="text" 
+                class="input" 
+                id="phone"
+                ng-model="$ctrl.userData.meta.phoneNumber" 
+                placeholder="000-000-00-00">
+              <p>Enter a phone number</p>
+            </div>
+
+            <div class="holder-short">
+              <label for="skype">Skype</label>
+              <input 
+                type="text" 
+                class="input" 
+                id="skype"
+                ng-model="$ctrl.userData.meta.skype" 
+                placeholder="Skype">
+              <p>This will be displayed on your profile.</p>
+            </div>
+        </div>
+        <div class="container-column col-xl-2 col-lg-2 col-md-3 col-sm-3">
+          <div class="container-img">
+              <label>Profile photo</label>
+              <upload-photo user-id="testUserId"></upload-photo>
+          </div>
+        </div>
+    </div>
+    <div class="footer-edit">
+        <button class="btn btn-white" ui-sref="mainView">Cancel</button>
+        <button class="btn btn-green" ng-click="$ctrl.updateUserData()">Save Changes</button>
+    </div>
+</form>

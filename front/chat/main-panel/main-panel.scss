@@ -1,0 +1,228 @@
+@import 'message-container/message-container';
+@import 'message-typings/message-typings.scss';
+@import 'search-input-dropdown/search-input-dropdown';
+
+main-panel {
+    $star-container-width: 40px;
+    $file-button-width: 50px;
+    $main-header-height: 76px;
+    $main-footer-height: 60px;
+    $main-border: 1px solid #b2b2b3;
+    $main-padding: 10px $lg-space;
+    $header-button-margin: 0 3%;
+    $input-search-min-width: 150px;
+    $input-search-height: 26px;
+    $input-message-padding: 35px;
+
+    @extend .container-column-fluid;
+    
+    max-height: 100%;
+    position: relative;
+    left: 0;
+
+    main {
+        justify-content: space-between;
+        height: 100%;
+        footer {
+            min-height: $main-footer-height;
+            border-top: $main-border;
+            padding: $main-padding;
+            .message-wrapper {
+                width: 100%;
+                height: auto;
+                textarea {
+                    height: auto;
+                    overflow: hidden;
+                    resize: none;
+                    min-height: 100%;
+                    max-height: 100px;
+                }
+            }
+            .input-message {
+                border-radius: 0 10px 10px 0;
+                box-shadow: none;
+                border-color: $grey;
+                padding-right: $input-message-padding;
+            }
+            .file-button {
+                border: 1px solid $grey;
+                border-right: none;
+                width: $file-button-width;
+                flex-grow: 1;
+                position: relative;
+                height: 100%;
+                font-size: $font-size-xl + 5px;
+                border-radius: $md-space - 2px 0 0 $md-space - 2px;
+                cursor: pointer;
+            }
+            .file-button-icon:before {
+                position: relative;
+                top: -1px;
+            }
+        }
+        header {
+            min-height: $main-header-height;
+            max-height: $main-header-height;
+            justify-content: space-between;
+            border-bottom: $main-border;
+            flex-wrap: wrap;
+            padding-left: 20px;
+            min-height: $main-header-height;
+            .container-row {
+                height: 50%;
+            }
+            .reciever-info {
+                justify-content: space-around;
+                padding: $sm-space 0;
+            }
+        }
+        .oli-plus {
+            position: relative;
+        }
+        .oli-search,
+        .oli-plus {
+            &:before {
+                display: flex;
+                position: absolute;
+                right: $lg-space;
+                align-self: center;
+                font-size: $font-size-xl;
+                cursor: pointer;
+                transform: translateY(-50%);
+                top: 50%;
+            }
+        }
+        .oli-search:before {
+            font-size: $font-size-lg;
+            right: $md-space + 2px;
+        }
+    }
+    a,
+    div,
+    input {
+        display: flex;
+    }
+    a {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: $grey;
+        &:hover {
+            color: $deep-grey;
+        }
+    }
+    .header-button {
+        position: relative;
+        height: auto;
+        cursor: pointer;
+        margin: $header-button-margin;
+        font-size: $font-size-xl + 5px;
+    }
+    .message-area {
+        position: relative;
+        flex: 1;
+        padding-right: $xs-space;
+        .ie {
+            overflow: hidden;
+        }
+    }
+    .contact-name {
+        font-size: $font-size-xl;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .state-ident {
+        width: $md-space - 2px;
+        height: $md-space - 2px;
+        border-radius: 50%;
+        margin: $xs-space;
+    }
+    .status-away {
+        background: $input-grey;
+    }
+    .status-active {
+        background: $green
+    }
+    .state-name {
+        font-size: $font-size-md;
+        color: $input-grey;
+    }
+    .col-8 {
+        padding-left: $lg-space + 2px;
+    }
+    .star-container {
+        position: relative;
+        width: $star-container-width;
+    }
+    .input-search {
+        height: $input-search-height;
+        min-width: $input-search-min-width;
+        font-size: $font-size-md;
+        margin-right: $sm-space + 2px;
+        margin-left: $sm-space + 2px;
+        padding-right: $md-space;
+    }
+    .mobile-menu {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        height: 100vh;
+        overflow: hidden;
+        header {
+            padding-left: 0 !important;
+            height: 60px !important;
+            align-items: center;
+        }
+        .xs-header {
+            flex-direction: row;
+            width: 100%;
+        }
+        .xs-contact-container {
+            flex-direction: row;
+            padding-left: 0;
+        }
+        .xs-dashboard {
+            padding-right: 10px;
+        }
+        .oli-search {
+            input {
+                display: none;
+            }
+        }
+        .oli-search {
+            width: auto;
+        }
+        .star-container,
+        .state-name,
+        .header-button {
+            display: none;
+        }
+        .contact-name {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-right: 5px;
+        }
+        .header-button:last-child {
+            display: flex;
+        }
+        .ident-container {
+            width: auto;
+        }
+        .mobile-menu {
+            display: flex;
+            font-size: $font-size-xl + 5px;
+            padding: 0 20px 0 20px;
+            cursor: pointer;
+        }
+    }
+
+    typings {
+        align-self: flex-start;
+        margin-left: $lg-space;
+        margin-bottom: $xs-space;
+    }
+}

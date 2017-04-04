@@ -1,0 +1,43 @@
+<div class="modal-wrapper" 
+	 ng-class="{'active-wrapper': $ctrl.sideBarListService.isAddGroupModalActive}"
+	 ng-click="$ctrl.sideBarListService.toggleModalWindow()"></div>
+<div class="modal-window container-column-fluid" ng-class="{'active-modal-window': $ctrl.sideBarListService.isAddGroupModalActive}">
+	<h2 class="container-row-fluid modal-header"
+		>Create group <i class="oli-error close" ng-click="$ctrl.sideBarListService.toggleModalWindow()"></i></h2>
+	<label class="input-label"
+		   for="groupName"
+		   >Group Name</label>
+	<input class="input-search"
+		   type="text"
+		   id="groupName"
+		   ng-model="$ctrl.groupName"
+		   placeholder="Group name">
+	<label class="input-label" 
+			for="searchFriends"
+			>Send invites to</label>
+	<input class="input-search"
+			type="search"
+			id="searchFriends"
+			placeholder="Friend name">
+	<div class="container-column-fluid friend-list scroll default always-visible">
+		<div class="container-row-fluid friend"
+			 ng-repeat="friend in $ctrl.sideBarListService.userList"
+			 ng-click="$ctrl.sideBarListService.toggleUserInGroup(friend)"
+			 ng-class="{'active': $ctrl.isUserAdded(friend)}">
+			<div class="avatar-container">
+				<!--<img ng-src="{{friend.meta.avatar}}"-->
+				<img ng-src="assets/img/img_place_holder.png"
+						class="avatar"
+						alt="UserName">
+			</div>
+			<span>
+				{{ friend.name }}
+			</span>
+			<i class="oli-checked"></i>
+		</div>
+	</div>
+	<div class="container-row-fluid button-container">
+		<button class="btn btn-white" ng-click="$ctrl.sideBarListService.toggleModalWindow()">Cancel</button>
+		<button class="btn btn-green" ng-click="$ctrl.createGroup()" ng-disabled="$ctrl.isCreateEnable()">Create</button>
+	</div>
+</div>

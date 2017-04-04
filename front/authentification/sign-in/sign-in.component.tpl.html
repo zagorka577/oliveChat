@@ -1,0 +1,61 @@
+<div class="container-row-fluid center-block vertical-center">
+    <div class="container-column vertical-center col-xl-4 col-lg-6 col-md-6 col-sm-12 box-wrap">
+
+        <a ui-sref="mainState">
+            <img class="logo" src="assets/img/logo.png" alt="" />
+        </a>
+
+        <h1 class="heading">Authorization</h1>
+
+        <!--Sign in form-->
+        <form name="signInForm" novalidate>
+            <div class="holder-short icon-holder oli-user" ng-class="{
+             'error': signInForm.login.$touched
+             && (signInForm.login.$error.oliPattern
+             || signInForm.login.$error.oliRequired)
+           }">
+                <!-- Login -->
+                <input class="input" 
+                       type="text" 
+                       name="login" 
+                       ng-model="$ctrl.userData.name" 
+                       placeholder="Login" 
+                       oli-validators oli-pattern="^[A-Za-z0-9.@_-]{3,24}$" 
+                       oli-required ng-trim="false">
+                <span class="error-msg oli-danger">Login is invalid</span>
+            </div>
+            <div class="holder-short icon-holder" ng-class="{'error': $ctrl.wrongUser}">
+                <span class="error-msg oli-danger">Username doesn't exist</span>
+            </div>
+            <!-- Password -->
+            <div class="holder-short icon-holder oli-locked" ng-class="{
+             'error': signInForm.password.$touched
+             && signInForm.password.$error.oliRequired
+           }">
+                <input class="input" type="password" name="password" ng-model="$ctrl.userData.password" placeholder="Password" oli-validators oli-required ng-trim="false">
+                <span class="error-msg oli-danger">Password is required</span>
+            </div>
+            <div class="holder-short icon-holder" ng-class="{'error': $ctrl.wrongPassword}">
+                <span class="error-msg oli-danger">Password is invalid</span>
+            </div>
+            <div class="btn-group container-row center-block">
+                <button type="submit" name="sign_in" class="btn btn-green" ng-click="$ctrl.loginUser()" ng-disabled="signInForm.$invalid && signInForm.login.$touched
+                            || signInForm.$invalid && signInForm.password.$touched">Sign In</button>
+                <button class="btn btn-green sign_up" ui-sref="signUp">Sign Up</button>
+            </div>
+        </form>
+
+        <!-- Error message shows if user doesn't exist in DB -->
+        <!-- <div class="sign-in-error oli-danger">Incorrect login or password!</div> -->
+
+        <!-- Use when social auth done -->
+        <!-- <div class="container-row center-block social-auth">
+      <span class="social-icon fb"></span>
+      <span class="social-icon tw"></span>
+      <span class="social-icon vk"></span>
+      <span class="social-icon go"></span>
+    </div> -->
+
+    </div>
+
+</div>

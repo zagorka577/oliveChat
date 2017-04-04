@@ -1,0 +1,74 @@
+message-container {
+    $photo-container-width: 72px;
+    $avatar-size: 52px;
+    $line-height: 20px;
+    $border-photo-radius: 50px;
+    padding-right: $md-space;
+    font-size: $font-size-md;
+    margin: $sm-space 0;
+    flex: 0 0 auto;
+    .container:hover {
+        background-color: $light-green;
+        .message-sender-photo {
+            .unvisible{
+                visibility: visible;
+            }
+        }
+    }
+    .message-sender-photo {
+        min-width: $photo-container-width;
+        margin: 0 $sm-space;
+        margin-left: $lg-space;
+        font-size: $font-size-sm;
+        color: $deep-green;
+        line-height: $line-height;
+        //Delete when provide avatar component
+        .avatar {
+            width: $avatar-size;
+            max-height: $avatar-size;
+            border-radius: $border-photo-radius;
+            overflow: hidden;
+        }
+    }
+    .message-content-header {
+        padding: $sm-space 0;
+        .message-sender-name {
+            color: $bg-black;
+            text-decoration: none;
+            font-size: $font-size-xl;
+            font-weight: bold;
+            margin-right: $sm-space;
+        }
+        .message-send-time {
+            display: flex;
+            align-items: flex-end;
+            color: $deep-grey;
+            font-weight: 200;
+            font-size: $font-size-md;
+        }
+    }
+    .message-without-name-and-photo {
+        padding-left: $sm-space + $sm-space + $photo-container-width;
+    }
+    .message-body {
+        text-align: left;
+        line-height: $line-height;
+        max-width: 100%;
+    }
+    .oli-star {
+        color: $deep-green;
+        visibility: hidden;
+    }
+    .oli-star1 {
+        color: $deep-green;
+    }
+     :hover .oli-star {
+        visibility: visible;
+    }
+    .next .message-sender-photo {
+        visibility: hidden;
+    }
+    .next:hover .message-sender-photo {
+        visibility: visible;
+    }
+}

@@ -1,0 +1,6 @@
+<div class="typing-indicator" ng-if="$ctrl.messageSocketService.typingsList.length" >
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="user-name" ng-repeat="author in $ctrl.messageSocketService.typingsList | limitTo:3">{{ author }}</span>
+</div>

@@ -1,0 +1,483 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Rest API for olive chat
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /group:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: groupController
+    get:
+      description: implement getAll request to the server
+      # used as the method name of the controller
+      operationId: getAllGroups
+      responses:
+        "200":
+          description: Regisstration sucessfull
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/groupResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: implement getGroupById request to the server
+      # used as the method name of the controller
+      operationId: createGroup
+      parameters:
+      - name: newGroup
+        in: body
+        description: 'Authoe id'
+        required: true
+        schema: 
+          $ref: "#/definitions/groupResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/groupResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /group/{id}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: groupController
+    get:
+      description: implement getGroupById request to the server
+      # used as the method name of the controller
+      operationId: getGroupById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the item to get
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/groupResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      description: implement updateGroupById request to the server
+      # used as the method name of the controller
+      operationId: updateGroupById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the item to update
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/groupResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/groupResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      # used as the method name of the controller
+    delete:
+      operationId: deleteGroupById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the item to delete
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /user:
+    x-swagger-router-controller: userController
+    get:
+      description: gets all users
+      # used as the method name of the controller
+      operationId: getAllUsers
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: store new user
+      # used as the method name of the controller
+      operationId: storeUser
+      parameters:
+        - name: userData
+          in: body
+          description: 'test'
+          required: true
+          schema: 
+            $ref: "#/definitions/userResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /user/{id}:
+    x-swagger-router-controller: userController
+    get:
+      description: get user by id
+      operationId: getUsersById
+      parameters: 
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      description: updating user by id
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: userData
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/userResponse"
+      responses:
+        200:
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+            # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      description: deleting user
+      operationId: deleteUser
+      parameters: 
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/userResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /message:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: messageController
+    get:
+      description: get all messages
+      # used as the method name of the controller
+      operationId: getAllMessages
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/messageResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      description: creatsing message
+      operationId: createMessage
+      parameters:
+        - name: userMessage
+          description: user message
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/messageResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/messageResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"   
+  /message/{id}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: messageController
+    get:
+      description: request for getting user message by id
+      # used as the method name of the controller
+      operationId: getMessageById
+      parameters:
+        - name: id
+          type: string
+          in: path
+          description: message id
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/messageResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      description: updating message data
+      operationId: updateMessage
+      parameters: 
+        - name: id
+          type: string
+          description: message id
+          in: path
+          required: true
+        - name: userMessage
+          description: updated user message
+          in: body
+          schema: 
+            $ref: "#/definitions/messageUpdateResponse"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/messageResponse"
+          #responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      description: deleting message
+      operationId: deleteMessage
+      parameters:
+        - name: id
+          type: string
+          description: message id
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/messageResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /group/{groupId}/message:
+    x-swagger-router-controller: groupMessageController
+    get:
+      description: get all messages in group
+      operationId: getAllGroupMessages
+      parameters:
+        - name: groupId
+          in: path
+          description: group id
+          required: true       
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/groupMessagesResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /group/{groupId}/user:
+        # binds a127 app logic to a route
+        x-swagger-router-controller: groupMembersController
+        get:
+          description: implement getGroupMembersById request to the server
+          # used as the method name of the controller
+          operationId: getGroupMembersById
+          parameters:
+            - name: groupId
+              in: path
+              description: Get members of the groups
+              required: true
+              type: string
+          responses:
+            "200":
+              description: Success
+              schema:
+                # a pointer to a definition
+                $ref: "#/definitions/groupMembersResponse"
+            # responses may fall through to errors
+            default:
+              description: Error
+              schema:
+                $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  userResponse:
+    properties:
+      id:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      name:
+        type: string
+
+  groupResponse:
+    properties:
+      _id:
+        type: string
+      _v:
+        type: number
+      meta:
+        type: object
+      groupMessages:
+        type: array
+        items:
+          type: string
+      groupUsers:
+        type: array
+        items:
+          type: string
+
+  groupMembersResponse:
+    properties:
+      _id:
+        type: string
+      _v:
+        type: number
+      meta:
+        type: object
+      groupMessages:
+        type: array
+        items:
+          type: string
+      groupUsers:
+        type: array
+        items:
+          type: object
+
+  groupMessagesResponse:
+    properties:
+      _id:
+        type: string
+      _v:
+        type: number
+      meta:
+        type: object
+      groupMessages:
+        type: array
+        items:
+          type: object
+      groupUsers:
+        type: array
+        items:
+          type: string
+
+  messageResponse:
+    # type: object
+    properties:
+      authorId: 
+        type: string
+        description: message 
+      groupId:
+        type: string
+        description: user name
+      messageBody:
+        type: string
+        description: user message
+      meta:
+        type: object
+
+  messageUpdateResponse:
+    type: object
+    properties:
+      messageBody:
+        type: string
+        description: user message
+
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

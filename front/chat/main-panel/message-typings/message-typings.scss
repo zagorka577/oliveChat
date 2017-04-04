@@ -1,0 +1,49 @@
+$typings-min-height: 30px;
+$typing-indicator-border-radius: 50px;
+$typing-indicator-padding: 7px;
+$dot-diameter: 7px;
+$dot-margin: 0 1px;
+
+typings {
+    display: block;
+    height: $typings-min-height;
+
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    will-change: transform;
+    border-radius: $typing-indicator-border-radius;
+    padding: $typing-indicator-padding;
+    position: relative;
+    animation: 2s bulge infinite ease-out;
+    .dot {
+      height: $dot-diameter;
+      width: $dot-diameter;
+      margin: $dot-margin;
+      background-color: $light-grey;
+      border-radius: 50%;
+      opacity: 0.4;
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          animation: 1s blink infinite ($i * .3333s);
+        }
+      }	
+    }
+
+    .user-name {
+    margin-left: $xs-space;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bulge {
+    50% {
+      transform: scale(1.05);
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@import './upload-photo/upload-photo';
+
+edit-profile {
+
+  /*variables*/
+  $width: 100%;
+  $height-top: 60px;
+  $margin: 4px;
+  $cancel-icon-size: 48px;
+  $elem-position: center;
+  $text-position: center;
+  $container-position: absolute;
+
+  min-width: 320px;
+
+  .fixed {
+    position: fixed;
+    width: $width;
+    height: $height-top;
+    z-index: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    background-color: $lighter-grey;
+  }
+
+  .center-block {
+    display: flex;
+    position: $container-position;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: $text-position;
+    justify-content: $elem-position;
+    font-size: 28px;
+    font-weight: 100;
+    color: $grey;
+    line-height: $height-top;
+  }
+
+  .oi {
+    position: $container-position;
+    right: 16px;
+    text-align: $text-position;
+    top: 6px;
+    width: $cancel-icon-size;
+    height: $cancel-icon-size;
+    line-height: $cancel-icon-size;
+    color: $bg-black;
+  }
+
+  .oi:before {
+    line-height: $cancel-icon-size;
+  }
+
+  .container {
+    position: $container-position;
+    left: 0;
+    right: 0;
+    top: $height-top;
+    bottom: 72px;
+    padding: 32px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: $elem-position;
+    align-items: flex-start;
+  }
+
+  .container-column {
+    width: 588px;
+    max-width: $width;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+  }
+
+  label {
+    margin: 0 0 $margin;
+    display: block;
+    font-size: $font-size-lg;
+    line-height: 24px;
+    color: $grey;
+  }
+
+  .container-img {
+    display: block;
+  }
+
+  .holder-short {
+    margin-right: 30px;
+  }
+
+  .holder-short:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+
+  .input {
+    font-size: 16px;
+    line-height: normal;
+    border: 1px solid $light-grey;
+    border-radius: 4px;
+    margin: $margin 0 0;
+    box-shadow: none;
+    height: 40px;
+  }
+
+  p {
+    font-size: $font-size-md;
+    line-height: 18px;
+    color: $light-grey;
+    margin-top: 8px;
+  }
+
+  .footer-edit {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    background-color: $lighter-grey;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 72px;
+  }
+
+  .btn {
+    width: 129px;
+    margin: 0 6px;
+  }
+
+  @media screen and (max-width: 575px) and (min-width: 320px) {
+    .oli-cancel {
+      display: none;
+    }
+
+    .container {
+      flex-direction: column-reverse;
+      position: initial;
+
+      .holder-short {
+        margin-right: 0;
+      }
+
+      .container-column:first-of-type {
+        padding-bottom: 70px;
+      }
+
+      .container-column:last-of-type {
+        padding-top: 50px;
+      }
+    }
+  }
+}

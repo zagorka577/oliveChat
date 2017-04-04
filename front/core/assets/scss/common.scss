@@ -1,0 +1,500 @@
+/* Alerts */
+$alert-padding: $md-space $lg-space $md-space 48px;
+$alert-border: 1px solid $grey;
+$alert-width: 66%;
+$alert-margin: 0 auto $lg-space;
+
+$alert-icon-margin-left: -24px;
+$alert-icon-max-width: 20px;
+
+body {
+	font-family: $main-font-family;
+}
+
+.alert {
+    min-width: $alert-width;
+    margin: $alert-margin; 
+    padding: $alert-padding;
+    background: $bg-white;
+    border: $alert-border;
+    border-left-width: $sm-space;
+    border-radius: $sm-space;
+}
+
+.alert-container-icon {
+    margin-right: $md-space;
+    margin-left: $alert-icon-margin-left;
+    max-width: $alert-icon-max-width;
+    text-align: center;
+    float: left;
+}
+
+.alert-error {
+    border-left-color: $err-red;
+    color: $err-red;
+}
+.alert-warning {
+    border-left-color: $warn-yellow;
+    color: $warn-yellow;
+}
+
+.alert-success {
+    border-left-color: $green;
+    color: $green;    
+}
+
+.alert-text {
+    color: $deep-grey;
+}
+/**********/
+
+
+
+/* Badget */
+$badget-radius: 50%;
+$badget-line-height: 24px;
+$badget-width: 30px;
+
+.badge_container {
+    justify-content: space-between;
+    padding: 0 $sm-space;
+    align-items: center;
+    .highlight_unread_message {
+        justify-content: center;
+        border-radius: $badget-radius;
+        color: $bg-white;
+        background-color: $brown;
+        font: $font-lg-regular;
+        line-height: $badget-line-height;
+        width: $badget-width;
+        cursor: pointer;
+    }
+}
+/*********/
+
+/*Buttons*/
+$btn-padding: $sm-space $md-space;
+$btn-border-radius: 3px;
+$btn-width: 132px;
+$btn-border: 1px solid $light-grey;
+
+.btn {
+  height: 40px;
+  padding: $btn-padding;
+  font-color: $deep-grey;
+  font-size: $font-size-md;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: $deep-grey;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $btn-border-radius;
+  cursor: pointer;
+  transition: all .150s ease-in-out;
+  outline: none;
+}
+
+.btn-white {
+  background-color: $bg-white;
+  border-color: $grey;
+}
+
+.btn-green {
+  background-color: $green;
+  border-color: $green;
+}
+
+.btn-green:active,
+.btn-green:focus,
+.btn-green:not([disabled="disabled"]):hover {
+  background-color: $light-green;
+  border-color: $light-green;
+}
+
+// .btn-white:active,
+// .btn-white:focus,
+.btn-white:not([disabled="disabled"]):hover {
+  color: $green;
+  border-color: $green;
+}
+
+.btn[disabled="disabled"] {
+  opacity: 0.5;
+}
+
+/**********************/
+
+/* Dropdown */
+$dropdown-z-index: 1000;
+$dropdown-min-width: 160px;
+$dropdown-border-radius: 5px;
+$dropdown-shadow: 0 4px 10px $light-grey;
+$separator-height: 1px;
+
+.dropdown {
+	position: relative;
+	display: inline;
+}
+//.dropdown-list {
+.dropdown > ul {
+	position: absolute;
+	display: none;
+	list-style: none;
+	top: 100%;
+  	z-index: $dropdown-z-index;
+  	min-width: $dropdown-min-width;
+ 	padding: $md-space;
+ 	font: $font-md-regular;
+ 	text-align: left;
+ 	background-color: $bg-white;
+ 	border: 1px solid $light-grey;
+ 	border-radius: $dropdown-border-radius;
+ 	@include box-shadow-dropdown($dropdown-shadow);
+}
+
+.dropdown-list-left {
+	//@extend .dropdown-list;
+	left: 0;
+}
+
+.dropdown-list-right {
+	//@extend .dropdown-list;
+	right: 0;
+}
+
+.dropdown-list > li > a {
+	display: block;
+	padding: $xs-space $sm-space;
+	text-decoration: none;
+	color: $deep-grey;
+	clear: both;
+	font-weight: normal;
+}
+
+.dropdown-list > li > a:hover,
+.dropdown-list > li > a:focus {
+	text-decoration: none;
+	background-color: $light-green;
+	border-radius: $dropdown-border-radius;
+}
+
+.dropdown-list .separator {
+	height: $separator-height;
+	margin: $md-space 0;
+	overflow: hidden;
+	background-color: $grey;
+}
+
+.dropdown-list > .disabled > a,
+.dropdown-list > .disabled > a:hover,
+.dropdown-list > .disabled > a:focus {
+	color: $light-grey;
+	background-color: $bg-white;
+}
+
+.dropdown-list-show div ul {
+	display: block;
+}
+/************************************/
+
+//TODO: Refactor inputs styles
+
+/* Inputs */
+$main-font: 'Open Sans', sans-serif;
+$short-holder-width:200px; 
+$input-border: 1px solid $grey;
+$rounded-corner: 4px;
+$pre-icon-distance: 25px;
+
+.input:focus{
+      @include box-shadow-input(0, 0, 5px, $light-green);
+ }
+
+.input{
+    border: $input-border;
+    font-family: $main-font;
+    border-radius: $rounded-corner;
+    font-size: $font-size-lg;
+    font-weight: 100;
+    color: $deep-grey;
+    margin: 0;
+    outline: 0;
+    padding: $sm-space;
+    width:100%;
+    box-sizing: border-box;
+    @include box-shadow-input(0, 1px, 0, $light-grey);
+}
+
+.icon-holder {
+    position: relative;
+
+    .input{
+        padding-right: $pre-icon-distance;
+    }
+}
+
+.input-error,.input-error:focus{
+    @extend .input;
+    @include set-colors($err-red);
+    @include box-shadow-input(0, 1px, 0, $light-grey);
+}
+
+.input-success,.input-success:focus{
+    @extend .input;
+    @include set-colors($green);
+    @include box-shadow-input(0, 1px, 0, $light-grey);        
+}
+
+.input-warning,.input-warning:focus{
+    @extend .input;
+    @include set-colors($warn-yellow);
+    @include box-shadow-input(0, 1px, 0, $light-grey);
+}
+
+.input-message{
+    @extend .input;
+    font-size: $font-size-md;
+}
+
+.input-search{
+    @extend .input;
+    font-size: $font-size-xl;
+}
+/**************************/
+
+/**********Images**********/
+
+.img-responsive {
+	width: 100%;
+}
+
+/**************************/
+
+/* Labels */
+.label {
+  color: $grey;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.label.time {
+  margin-left: $md-space;
+  color: $deep-grey;
+}
+
+.label.heading {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $brown;
+}
+
+.label.heading:hover {
+  color: $light-green;
+}
+/*************************/
+
+/* Lists */
+$list-item-padding: $xs-space $lg-space;
+$list-item-border-radius: 5px;
+$oli-padding-left: 130px;
+
+.list-group {
+  padding-left: 0;
+}
+
+.list-text {
+  text-align: left;
+  font: $font-md-regular;
+  text-transform: lowercase;
+  padding-left: $sm-space;
+  color: $deep-grey;
+  text-decoration: none;
+  outline: 0;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: $list-item-padding;
+  list-style: none;
+  border-top-right-radius: $list-item-border-radius;
+  border-bottom-right-radius: $list-item-border-radius;
+  cursor: pointer;
+}
+
+.li {
+  font-size: $font-size-sm;
+}
+
+.list-item:hover {
+  background-color: $light-green;
+}
+
+.oli {
+  color: $green;
+  font-size: $font-size-lg;
+  padding-left: $oli-padding-left;
+}
+
+.oli:hover {
+  color: $bg-white;
+}
+/************************/
+
+/* Progress Bars */
+$bar-border: 3px solid #ccff99;
+
+$width-bar-container: 100px;
+$height-bar-container: 12px;
+$bar-width: 75%;
+$bar-border-radius: 5px;
+
+$radial-diameter: 50px;
+$radial-padding: 20%;
+$circle-position: 50%;
+$circle-diameter: 75%;
+$circle-border-radius: 50%;
+$translate: -50%;
+$animation-duration: 1.5s;
+$spin-degree: 360deg;
+
+.bar-container {
+	border: $bar-border;
+	border-radius: $bar-border-radius;
+	width: $width-bar-container;
+	height: $height-bar-container;
+
+	.bar {
+		height: 100%;
+		width: $bar-width;
+		border-radius: $bar-border-radius;
+		background-color: $light-green;
+	}
+}
+
+.ring {
+	width: $radial-diameter;
+	height: $radial-diameter;
+	position: relative;
+	border-radius: $circle-border-radius;
+	background-color: $light-green;
+	z-index: 3;
+
+	.circle {
+		position: absolute;
+		width: $circle-diameter;
+		height: $circle-diameter;
+		top: $circle-position;
+		left: $circle-position;
+		transform: translate($translate, $translate);
+		border-radius: $circle-border-radius;
+		background-color: $light-green;
+		z-index: 4;
+	}
+
+	
+	.spiner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		animation-name: spin;
+		animation-duration: $animation-duration;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+
+		border-radius: $circle-border-radius;
+		overflow: hidden;
+		z-index: 1;
+
+		.square {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: $circle-diameter / 2;
+			height: $circle-diameter / 2;
+			background-color: $light-green;
+			z-index: 5;
+		}
+	}
+}
+
+@keyframes spin {
+	100% { transform: rotate($spin-degree); }
+}
+/*********************************/
+
+/* Scroll bars (not for Mozilla)*/
+.scroll {
+	overflow: auto;
+	
+	&::-webkit-scrollbar {
+		width: $scrollbar-width;
+	}
+
+	&::-webkit-scrollbar-track {
+		margin: $xs-space 0; 
+		border-radius: $scrollbar-width;		
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $scrollbar-width;
+	}
+
+	&.default {
+		overflow: hidden;
+
+		&::-webkit-scrollbar-track {
+			background-color: $bg-white;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $light-grey;
+			border: 1px solid $bg-white;
+		}
+	}
+
+	&.inverse {
+		overflow: hidden;
+
+		&::-webkit-scrollbar-track {
+			background-color: $light-grey;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $bg-white;
+			border: 1px solid $light-grey;
+		}
+	}
+
+	&.default:hover,
+	&.inverse:hover,
+	&.always-visible {
+		overflow: auto;
+	}
+}
+
+$avatar-diameter: 60px;
+$avatar-radius: 50%;
+$avatar-horizontal-position: -35%;
+
+/*Avatar*/
+.avatar-container {
+	width: $avatar-diameter;
+	height: $avatar-diameter;
+	overflow: hidden;
+	border-radius: $avatar-radius;
+	margin-right: $sm-space;
+
+	.avatar {
+		height: 100%;
+		margin-left: $avatar-horizontal-position;
+	}
+}
+/******************/

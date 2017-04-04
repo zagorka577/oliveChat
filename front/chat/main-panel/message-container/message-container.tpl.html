@@ -1,0 +1,17 @@
+<div class="container container-row-fluid">
+    <div class="message-sender-photo">
+        <div class="unvisible" ng-if="$ctrl.message.iterative"> 12:45 </div>
+        <div class="avatar" ng-if="!$ctrl.message.iterative">
+            <img src="assets/img/img_avatar_mini.png" alt="Avatar">
+        </div>
+    </div>
+    <div class="container-column-fluid">
+        <div class="message-content-header">
+            <span profile-popover="user" class="message-sender-name move-left">{{ $ctrl.message.author }}</span>
+            <span class="message-send-time"> {{ $ctrl.message.messageTime }}</span>
+        </div>
+        <div class="container-row-fluid message-body">
+            <span>{{ $ctrl.message.messageBody }}</span>
+        </div>
+    </div>
+</div>

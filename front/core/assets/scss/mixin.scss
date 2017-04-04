@@ -1,0 +1,19 @@
+@mixin box-shadow-dropdown($shadow) {
+	-webkit-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+@mixin box-shadow-input($top, $left, $blur, $color, $inset:inset) {
+    box-shadow:$top $left $blur $color $inset;
+ }
+
+@mixin set-colors($colors) {
+    background-color: $colors;
+    border-color: $colors;
+ }
+
+@mixin overflow-elipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

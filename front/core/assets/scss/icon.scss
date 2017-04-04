@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+
+/* TODO: 
+ * Uncoment this after fixing font-face compilation
+ */
+
+// @font-face {
+//   font-family: "olive";
+//   src: url("core/assets/fonts");
+//   src: url("../fonts/olive.eot");
+//   src:url("../fonts/olive.eot?#iefix") format("embedded-opentype"),
+//     url("../fonts/olive.woff") format("woff"),
+//     url("../fonts/olive.ttf") format("truetype"),
+//     url("../fonts/olive.svg#olive") format("svg");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+[data-icon]:before {
+  font-family: "olive";
+  content: attr(data-icon);
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="oli-"]:before,
+[class*=" oli-"]:before {
+  font-family: "olive";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.oli-close:before {
+  content: "\61";
+}
+.oli-bell:before {
+  content: "\64";
+}
+.oli-cancel:before {
+  content: "\65";
+}
+.oli-confirm:before {
+  content: "\66";
+}
+.oli-checked:before {
+  content: "\67";
+}
+.oli-sms:before {
+  content: "\68";
+}
+.oli-danger:before {
+  content: "\69";
+}
+.oli-warn:before {
+  content: "\6a";
+}
+.oli-denied:before {
+  content: "\6b";
+}
+.oli-download:before {
+  content: "\6c";
+}
+.oli-layers:before {
+  content: "\6e";
+}
+.oli-help:before {
+  content: "\6f";
+}
+.oli-info:before {
+  content: "\70";
+}
+.oli-home:before {
+  content: "\71";
+}
+.oli-hash:before {
+  content: "\72";
+}
+.oli-hashtag:before {
+  content: "\73";
+}
+.oli-giftbox:before {
+  content: "\74";
+}
+.oli-gift:before {
+  content: "\75";
+}
+.oli-folder:before {
+  content: "\76";
+}
+.oli-allfile:before {
+  content: "\77";
+}
+.oli-crash:before {
+  content: "\78";
+}
+.oli-more:before {
+  content: "\41";
+}
+.oli-option:before {
+  content: "\42";
+}
+.oli-new-file:before {
+  content: "\43";
+}
+.oli-plus:before {
+  content: "\44";
+}
+.oli-cancel-1:before {
+  content: "\45";
+}
+.oli-remove:before {
+  content: "\46";
+}
+.oli-work:before {
+  content: "\47";
+}
+.oli-search:before {
+  content: "\48";
+}
+.oli-searchb:before {
+  content: "\49";
+}
+.oli-settings:before {
+  content: "\4a";
+}
+.oli-smile:before {
+  content: "\4b";
+}
+.oli-star:before {
+  content: "\4c";
+}
+.oli-success:before {
+  content: "\4d";
+}
+.oli-log-in:before {
+  content: "\4e";
+}
+.oli-warning:before {
+  content: "\4f";
+}
+.oli-users:before {
+  content: "\50";
+}
+.oli-account:before {
+  content: "\51";
+}
+.oli-link:before {
+  content: "\52";
+}
+.oli-user:before {
+  content: "\53";
+}
+.oli-teamwork:before {
+  content: "\54";
+}
+.oli-circle:before {
+  content: "\55";
+}
+.oli-error:before {
+  content: "\62";
+}
+.oli-envelope:before {
+  content: "\63";
+}
+.oli-add:before {
+  content: "\6d";
+}
+.oli-ban-male-user-with-suit-and-tie:before {
+  content: "\79";
+}
+.oli-unlocked:before {
+  content: "\7a";
+}
+.oli-locked:before {
+  content: "\56";
+}
+.oli-key:before {
+  content: "\57";
+}
+.oli-exit:before {
+  content: "\58";
+}

@@ -1,0 +1,95 @@
+side-bar {
+	$list-width: 94%;
+	$peofile-max-height: 76px;
+	$side-bar-min-width: 226px;
+	$head-border-radius: 5px;
+
+	@extend .container-column-fluid;
+	@extend .col-2;
+
+	min-width: $side-bar-min-width;
+	height: 100%;
+	font: $font-md-regular;
+	color: $grey;
+	overflow: auto;
+	left: 0;
+	margin-right: 0;
+
+	.profile {
+		width: 100%;
+		max-height: $peofile-max-height;
+		min-height: $peofile-max-height;
+		justify-content: space-between;
+		padding: $lg-space;
+		background-color: $deep-green;
+		font-size: $font-size-xl;
+		color: $bg-white;
+		cursor: pointer;
+
+		.nickname {
+			@include overflow-elipsis;
+			display: block;
+		}
+	}
+
+	.profile:hover {
+		opacity: 0.9;
+	}
+
+	.scroll-container {
+      height: 100%;
+		padding-right: $xs-space;
+		background-color: $sweet-cream;
+		color: $brown;
+		height: 100%;
+
+		.scroll {
+			padding-right: $scrollbar-width;
+		}
+		.list-item {
+			display: flex;
+			margin-right: $xs-space;
+			padding: $sm-space 0 $sm-space $lg-space;
+
+			.list-text {
+				@include overflow-elipsis;
+				display: block;
+			}
+		}
+
+		.list-item.clicked {
+			background-color: $light-green;
+		}
+
+		.head {
+			margin-right: $xs-space;
+			padding: $lg-space 0;
+			padding-left: $lg-space;
+			padding-right: $sm-space;
+			justify-content: space-between;
+			align-items: center;
+			font: $font-md-bold;
+			text-transform: uppercase;
+			border-top-right-radius: $head-border-radius;
+			border-bottom-right-radius: $head-border-radius;
+		}
+
+		.head:hover {
+			background-color: $light-green;
+			cursor: pointer;
+		}
+	}
+	@media (max-width: 768px) {
+		position: relative;
+		left: -$side-bar-min-width;
+		margin-right: -$side-bar-min-width;
+
+		transition: left 0.3s,
+					margin-right 0.3s;
+	}
+}
+
+side-bar.show-side-bar {
+	left: 0;
+	margin-right: 0;
+}

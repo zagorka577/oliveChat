@@ -1,0 +1,91 @@
+profile-popover {
+  $avatar-border: 1px solid $light-grey;
+  $border-radius: 5px;
+  $modal-box-shadow: 0 3px 3px 2px $light-grey;
+  $btn-box-shadow: 0 1px 3px 0px $light-grey;
+  $popover-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  $animation-duration: 0.2s;
+
+
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-in-out;
+
+  &.active {
+    opacity: 1;
+    z-index: 100;
+    pointer-events: auto;
+    .profile-popover-container {
+      pointer-events: auto;
+    }
+
+    &.slide {
+      .profile-popover-container {
+        animation: slide 200ms ease-in-out;
+        animation-direction: alternate;
+      }
+    }
+  }
+  .profile-popover-container {
+    padding: $lg-space;
+    border-radius: $border-radius;
+    background-color: $bg-white;
+    box-shadow: $popover-box-shadow;
+    pointer-events: none;
+
+    .avatar {
+      flex-basis: 100%;
+      border-radius: $border-radius;
+      overflow: hidden;
+      margin-bottom: $lg-space;
+    }
+
+    hr {
+      width: 100%;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $light-grey;
+    }
+
+    .profile-name {
+      margin-bottom: $lg-space;
+      font: $font-xl-bold;
+    }
+
+    .profile-info {
+      margin-bottom: $md-space;
+
+      .info-header {
+        color: $grey;
+      }
+
+      .info-text {
+        @include overflow-elipsis;
+        display: block;
+      }
+    }
+
+    .buttons {
+      justify-content: space-between;
+    }
+  }
+
+  &.user {
+    .buttons {
+      display: none;
+    }
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}

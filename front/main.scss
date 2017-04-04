@@ -1,0 +1,25 @@
+@import 'core/assets/scss/mixin';
+@import 'core/assets/scss/variables';
+@import 'core/assets/scss/grid';
+@import 'core/assets/scss/common';
+
+@import './authentification/authentification';
+@import './edit-profile/edit-profile';
+@import './chat/chat';
+
+.mockup-list {
+  padding: 15px;
+}
+
+.mockup-list li {
+  margin-bottom: 15px;
+}
+
+a {
+  color: #007ab8;
+  text-decoration: none;
+}
+
+span {
+  font-size: 14px;
+}

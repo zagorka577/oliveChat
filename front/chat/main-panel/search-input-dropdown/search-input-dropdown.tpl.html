@@ -1,0 +1,12 @@
+<div class="dropdown-list-show">
+    <ul class="dropdown-list">
+        <li class='container-row' ng-repeat="user in $ctrl.searchResult">
+            <img src="assets/img/img_place_holder.png">
+            <span>{{ user.name }}</span>
+            <span class="oli-plus"></span>
+        </li>
+        <div class='container-row' ng-if="!$ctrl.searchResult.length">
+            <span>No results</span>
+        </div>
+    </ul>
+</div>

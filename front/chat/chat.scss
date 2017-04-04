@@ -1,0 +1,18 @@
+@import 'side-bar/side-bar';
+@import 'main-panel/main-panel';
+@import 'profile-popover/profile-popover';
+@import 'add-group-modal/add-group';
+
+$chat-min-width: 320px;
+
+chat {
+	@extend .container-row-fluid;
+
+	min-width: $chat-min-width;
+	height: calc(100vh);
+	position: relative;
+
+	@media (max-width: 769px) {
+		overflow-x: hidden;
+	}
+}

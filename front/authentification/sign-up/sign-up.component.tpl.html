@@ -1,0 +1,96 @@
+<div class="container-row-fluid center-block vertical-center">
+    <div class="container-column vertical-center col-xl-4 col-lg-6 col-md-6 box-wrap">
+
+        <a ui-sref="mainView">
+            <img class="logo" src="assets/img/logo.png" alt="" />
+        </a>
+
+        <h1 class="heading">Registration</h1>
+
+        <form name="signUpForm" novalidate>
+            <div class="holder-short icon-holder oli-user" ng-class="{
+             'error': signUpForm.username.$touched
+             && (signUpForm.username.$error.oliPattern
+             || signUpForm.username.$error.oliRequired),
+             'valid': signUpForm.username.$touched
+             && !signUpForm.username.$error.oliPattern
+             && !signUpForm.username.$error.oliRequired
+           }">
+                <input class="input"
+                       type="text" 
+                       name="username" 
+                       ng-model="$ctrl.registrationData.name" 
+                       placeholder="Username" 
+                       oli-validators oli-pattern="^[A-Za-z0-9.@_-]{3,24}$" 
+                       oli-required ng-trim="false">
+
+                <span class="error-msg oli-danger">Username is invalid</span>
+
+            </div>
+            <div class="holder-short icon-holder" ng-class="{'error': $ctrl.nameTaken}">
+                <span class="error-msg oli-danger">User name is already taken</span>
+            </div>
+            <div class="holder-short icon-holder oli-envelope" ng-class="{
+             'error': signUpForm.email.$touched
+             && (signUpForm.email.$error.oliPattern
+             || signUpForm.email.$error.oliRequired),
+             'valid': signUpForm.email.$touched
+             && !signUpForm.email.$error.oliPattern
+             && !signUpForm.email.$error.oliRequired
+           }">
+                <input class="input" 
+                       type="email" 
+                       name="email" 
+                       ng-model="$ctrl.registrationData.email" 
+                       placeholder="Email" 
+                       oli-validators oli-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" 
+                       oli-required ng-trim="false">
+                <span class="error-msg oli-danger">Incorrect email</span>
+            </div>
+            <div class="holder-short icon-holder" ng-class="{'error': $ctrl.emailTaken}">
+                <span class="error-msg oli-danger">Email is already taken</span>
+            </div>
+            <div class="holder-short icon-holder oli-locked" ng-class="{
+             'error': signUpForm.password.$touched
+             && (signUpForm.password.$error.oliPattern
+             || signUpForm.password.$error.oliRequired),
+             'valid': signUpForm.password.$touched
+             && !signUpForm.password.$error.oliPattern
+             && !signUpForm.password.$error.oliRequired
+           }">
+                <input class="input" type="password" name="password" ng-model="$ctrl.registrationData.password" placeholder="Password" oli-validators oli-pattern="^.{6,}$" oli-required ng-trim="false">
+                <span class="error-msg oli-danger">Password is too short</span>
+            </div>
+            <div class="holder-short icon-holder oli-locked" ng-class="{
+             'error': signUpForm.passwordConfirm.$touched
+             && (signUpForm.passwordConfirm.$error.oliPattern
+             || signUpForm.passwordConfirm.$error.oliRequired
+             || signUpForm.passwordConfirm.$error.oliCompare),
+             'valid': signUpForm.passwordConfirm.$touched
+             && !signUpForm.passwordConfirm.$error.oliPattern
+             && !signUpForm.passwordConfirm.$error.oliRequired
+             && !signUpForm.passwordConfirm.$error.oliCompare
+           }">
+                <input class="input" type="password" name="passwordConfirm" ng-model="passwordConfirm" placeholder="Confirm password" oli-validators oli-pattern="^.{6,}$" oli-compare oli-required ng-trim="false">
+                <span class="error-msg oli-danger">Password doesn't match</span>
+            </div>
+            <button type="submit" name="sign_up" class="btn btn-green" ng-click="$ctrl.registrateUser()" ng-disabled="signUpForm.username.$touched && signUpForm.$invalid
+              || signUpForm.email.$touched && signUpForm.$invalid
+              || signUpForm.password.$touched && signUpForm.$invalid
+              || signUpForm.passwordConfirm.$touched && signUpForm.$invalid
+              ">Sign Up</button>
+        </form>
+
+        <!-- Use when social auth done -->
+        <!-- <div class="container-row center-block social-auth">
+      <span class="social-icon fb"></span>
+      <span class="social-icon tw"></span>
+      <span class="social-icon vk"></span>
+      <span class="social-icon go"></span>
+    </div> -->
+
+        <a ui-sref="signIn" class="oli-log-in back-to-login-page">Already registered</a>
+
+    </div>
+
+</div>

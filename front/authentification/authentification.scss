@@ -1,0 +1,149 @@
+@import 'sign-in/sign-in';
+@import 'sign-up/sign-up';
+
+sign-in,
+sign-up {
+  width: 100vw;
+  height: 100vh;
+
+  & > div {
+    height: 100vh;
+    background: $lighter-grey;
+    font-weight: 100;
+  }
+
+  // Rewrite common button style
+  .back-to-login-page,
+  .back-to-login-page:link,
+  .back-to-login-page:visited {
+    position: relative;
+    margin-top: 15px;
+    color: #007ab8;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  a[class*="oli-"]::before {
+    position: absolute;
+    right: -20px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .box-wrap {
+    background-color: #fff;
+    padding: 45px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+
+  .center-block {
+    justify-content: center;
+  }
+
+  .heading {
+    margin: 25px 0 10px;
+    font-size: 32px;
+    color: $grey;
+  }
+
+  /* FORMS */
+  form {
+    margin: 10px 0 15px;
+    width: 270px;
+  }
+
+  .input {
+    font-size: 16px;
+    border: 1px solid $light-grey;
+    box-shadow: none;
+  }
+
+  .holder-short {
+    width: 100%;
+
+    &[class*="oli-"]::before {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+
+    .input {
+      height: 40px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 5px;
+    }
+
+    &.error {
+      padding-bottom: 10px;
+      color: $err-red;
+    }
+
+    &.error input {
+      margin-bottom: 10px;
+      border-color: $err-red;
+      background-color: #fff;
+    }
+
+    &.valid {
+      color: $green;
+    }
+
+    &.valid input {
+      border-color: $green;
+    }
+
+    &.error .error-msg {
+      display: block;
+    }
+  }
+
+  .error-msg {
+    display: none;
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+
+  /* Social auth */
+  .social-auth {
+    margin-top: 15px;
+  }
+
+  .social-icon {
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &.fb {
+      background-image: url("/assets/img/fb.png");
+    }
+
+    &.tw {
+      background-image: url("/assets/img/twitter.png");
+    }
+
+    &.vk {
+      background-image: url("/assets/img/vk.png");
+    }
+
+    &.go {
+      background-image: url("/assets/img/g+.png");
+    }
+  }
+
+}

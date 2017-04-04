@@ -1,0 +1,36 @@
+<div profile-popover="me" class="profile col-2 container-row-fluid vertical-center">
+	<!--Provide shared component for avatar-->
+	<div class="avatar-container">
+		<img ng-src="assets/img/img_place_holder.png"
+				class="avatar"
+				alt="UserName">
+	</div>
+	<span class="col-8 nickname">
+		Vasiliy Petrovich Profilenko
+	</span>
+</div>
+<div class="scroll-container container-column-fluid">
+	<div class="scroll default">
+		<h4 class="head container-row-fluid"
+			>Groups<i class="oli-plus" ng-click="$ctrl.sideBarListService.toggleModalWindow()"></i></h4>
+		<ul class="list-group">
+			<li ng-repeat="group in $ctrl.groupList" 
+				class="list-item oli-hashtag"
+				ng-click="$ctrl.sideBarListService.joinChatGroup(group)"
+				ng-class="{clicked: $ctrl.sideBarListService.activeGroup == group.id}">
+				<a class="list-text"
+				>{{ group.meta.groupName }}</a>
+			</li>
+		</ul>
+		<h4 class="head container-row-fluid">Friends<i class="oli-plus"></i></h4>
+		<ul class="users list-group">
+			<li ng-repeat="user in $ctrl.userList"
+				class="list-item oli-circle"
+				ng-click="$ctrl.sideBarListService.joinPrivetChatGroup(user)"
+				ng-class="{clicked: $ctrl.sideBarListService.activePrivetgroup == user.id}"
+				><a class="list-text"
+				>{{ user.name }}</a>
+			</li>
+		</ul>
+	</div>
+</div>

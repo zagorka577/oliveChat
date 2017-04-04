@@ -1,0 +1,14 @@
+<form name="$ctrl.uploadService.upload_form">
+    <div class="avatar-container">
+        <img class="avatar" ngf-thumbnail="$ctrl.uploadService.file || 'assets/img/img_place_holder.png'" alt="profile photo"/>
+    </div>
+    <div class="pic-button">
+        <button ngf-select
+            ng-model="$ctrl.uploadService.file"
+            name="file"
+            ngf-pattern="'image/*'"
+            accept="image/*"
+            class="btn btn-white btn-picture">Select</button>
+        <!--<button type="submit" ng-click="$ctrl.uploadService.submit($ctrl.url)" class="btn btn-green btn-picture">Upload</button>-->
+    </div>
+</form>

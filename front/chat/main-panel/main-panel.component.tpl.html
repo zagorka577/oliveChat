@@ -1,0 +1,62 @@
+<main class="container-column-fluid">
+    <header class="container-row-fluid xs-header col-2">
+        <div class="col-2 container-column-fluid xs-contact-container reciever-info">
+            <div class="mobile-menu">
+                <a class="oli-layers icon-center" ng-click="$ctrl.toggleSideBar()"></a>
+            </div>
+            <div class="container-row-fluid vertical-center">
+                <span class="contact-name">ContactName2<span>
+            </div>
+            <div  class="container-row-fluid vertical-center ident-container">
+                    <div class="vertical-center star-container">
+                        <a class="oli-star icon-center"></a>
+                    </div>
+                    <div class="state-block container-row-fluid vertical-center">
+                        <div class="state-ident status-active"></div>
+                        <span class="state-name">away</span>
+            </div>
+        </div>
+        </div>
+        <div class="col-5 col-xs-3 vertical-center move-right xs-dashboard">
+            <div class="header-button">
+                <drop-down-left></drop-down-left>
+            </div>
+            <div class="header-button">
+                <a ui-sref="editProfile" class="oli-new-file icon-center"></a>
+            </div>
+            <div class="icon-holder oli-search holder-short verttical-center">
+                <input class="input-search" ng-model="$ctrl.searchQuery" ng-click="$ctrl.toggleSearchClick()">
+                <search-input-dropdown ng-mouseleave="$ctrl.toggleSearchClick()"
+                                       ng-show="$ctrl.searchQuery && $ctrl.searchClick" 
+                                       search-query='$ctrl.searchQuery'>
+                </search-input-dropdown>
+            </div>
+            <div class="header-button">
+                <a class="oli-star icon-center"></a>
+            </div>
+            <div class="header-button">
+                <drop-down-right></drop-down-right>
+            </div>
+        </div>
+    </header>
+    <div class="message-area scroll inverse always-visible" scroll-bottom="$ctrl.allMessages">
+        <div class="container-column-fluid">
+            <message-container ng-repeat="message in $ctrl.allMessages" message="message"></message-container>
+        </div>
+    </div>
+    <typings></typings>
+    <footer class="container-row-fluid">
+        <div class="message-wrapper">
+            <div class="file-button">
+                <a class="oli-download icon-center file-button-icon" title="Upload file"></a>
+            </div>
+            <div class="oli-plus container-row-fluid">
+                <textarea elastic name="input" 
+                          class="input-message scroll default always-visible" 
+                          ng-model="$ctrl.messageBody" 
+                          ng-keyup="$ctrl.sendMessage($event, $ctrl.messageBody)" 
+                          placeholder="message"></textarea>
+            </div>
+        </div>
+    </footer>
+</main>
